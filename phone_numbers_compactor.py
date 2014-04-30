@@ -3,8 +3,6 @@ import time
 
 __author__ = 'vpol'
 
-
-
 def fill(root, prefix, value, parent, pkey):
     if len(prefix) > 1:
         if prefix[0] in root:
@@ -50,7 +48,9 @@ if __name__ == '__main__':
     '''
     start_time = time.time()
     plist = {}
-    for x in range(3333333, 5555555):
-        fill(plist, str(x), 'value', plist, None)
+    start = 0
+    end = 50000
+    for x in range(start, end):
+        fill(plist, str(x).zfill(7), 'value', plist, None)
     print('\n'.join(sorted(compact(plist, ''))))
     print('operation took {0:0.2f} sec'.format(time.time() - start_time))
